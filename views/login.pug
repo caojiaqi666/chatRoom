@@ -1,0 +1,17 @@
+doctype html 
+html 
+  head 
+    meta(charset="utf-8")
+    title 我的聊天室
+    script(src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js") 
+    link(href="/css/index.css" type="text/css" rel="stylesheet")
+  body
+    #box.line
+      .title 登录聊天室
+      .username 
+        label 用户名
+        input#un(type="text" placeholder="请输入用户名")
+      .passwd 
+        label 密码
+        input#pwd(type="text" placeholder="请输入密码")
+      .btn.line 登录
