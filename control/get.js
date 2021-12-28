@@ -4,7 +4,8 @@ const login = async (ctx) => {
 };
 
 const chat = async (ctx) => {
-  ctx.body = "welcome";
+  // ctx.body = "welcome";
+  await ctx.render("chat");
 };
 
 module.exports = {

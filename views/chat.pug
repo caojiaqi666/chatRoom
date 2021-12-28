@@ -1,0 +1,28 @@
+doctype html 
+html 
+  head 
+    meta(charset="utf-8")
+    title 我的聊天室
+    script(src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js") 
+    link(href="/css/chat.css" type="text/css" rel="stylesheet")
+    script(src="/js/chat.js") 
+  body
+    #box
+      .left.line
+        ul.list 
+          li 风与 
+          li afei
+      .right 
+        .chat.line 
+          .title 群聊天室
+          .chat-window 
+            .message
+              .system 路人甲加入了聊天室
+            .message
+              .name 风雨说：
+              .say 今天天气不错~
+        .function
+          input.line
+          .btn.line 发送
+
+      
