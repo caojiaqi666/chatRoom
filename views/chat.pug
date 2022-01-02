@@ -10,11 +10,12 @@ html
     #box
       .left.line
         ul.list 
-          li 风与 
-          li afei
+          each item in onlineUser  
+            - var name = item.username
+            li #{name} 
       .right 
         .chat.line 
-          .title 群聊天室
+          .title 群聊天室 #{username}
           .chat-window 
             .message
               .system 路人甲加入了聊天室

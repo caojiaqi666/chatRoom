@@ -1,11 +1,24 @@
 const Koa = require("koa");
 const app = new Koa();
+const session = require("koa-session");
 const { resolve } = require("path");
 const views = require("koa-views");
 const koaStatic = require("koa-static");
 const koaBody = require("koa-body");
 const router = require("./routes/router");
+
+app.keys = ["Nodejs多人聊天室"];
+
+const CONFIG = {
+  key: "SID",
+  maxAge: 36e5,
+  overwrite: true, // 是否可重写
+  httpOnly: true, // (boolean) 前端是否可见
+  signed: true /** (boolean) signed or not (default true) */,
+  rolling: true /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */,
+};
 app
+  .use(session(CONFIG, app))
   // 加载模板渲染模块
   .use(
     views(resolve(__dirname, "views"), {

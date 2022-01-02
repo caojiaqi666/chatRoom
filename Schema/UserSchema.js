@@ -14,5 +14,13 @@ const UserSchema = new Schema({
   type: {
     type: String,
     default: 'user'
+  },
+  online: {
+    type: Boolean,
+    required: true,
   }
+}, {
+  versionKey: false,
 })
+
+module.exports = UserSchema

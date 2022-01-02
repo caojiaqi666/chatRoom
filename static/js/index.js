@@ -14,13 +14,38 @@ window.onload = () => {
       },
     });
     console.log(res);
+    if (res.data.state == 0) {
+      console.log("登录成功");
+      window.location.href = res.data.url;
+    } else if (res.data.state == 2) {
+      console.log("密码错误");
+    } else if (res.data.state == 3) {
+      console.log("该用户已登录过了");
+    } else {
+      console.log("未知错误");
+    }
   };
-  
-  btn.addEventListener('click', function(e) {  
-    e.stopPropagation();//取消事件冒泡
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation(); //取消事件冒泡
     const userValue = document.getElementById("un").value;
     const passValue = document.getElementById("pwd").value;
+    if (userValue && passValue) {
+      toLogin(userValue, passValue);
+    } else {
+      alert("Please enter");
+    }
+  });
+  // let ws = new WebSocket("ws://localhost:4001")
+
+  // ws.onmessage = (e) => {
+  //   console.log(e.data);
+  // }
+
+  // btn.addEventListener("click", function (e) {
+  //   const userValue = document.getElementById("un").value;
+  //   ws.send(userValue)
+
     
-    toLogin(userValue, passValue);
-  })
+  // });
 };

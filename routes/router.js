@@ -4,7 +4,8 @@ const post = require("../control/post");
 
 r.get("/", get.login);
 
-r.get("/chat", get.chat)
+// 验证cookie后跳转
+r.get("/chat", get.keepLog, get.chat)
 
 // 首页登录验证接口
 r.post("/", post.login)
