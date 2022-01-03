@@ -36,16 +36,16 @@ window.onload = () => {
       alert("Please enter");
     }
   });
-  // let ws = new WebSocket("ws://localhost:4001")
+  let ws = new WebSocket("ws://localhost:4000")
 
-  // ws.onmessage = (e) => {
-  //   console.log(e.data);
-  // }
+  ws.onmessage = (e) => {
+    console.log(e.data);
+  }
 
-  // btn.addEventListener("click", function (e) {
-  //   const userValue = document.getElementById("un").value;
-  //   ws.send(userValue)
+  btn.addEventListener("click", function (e) {
+    const userValue = document.getElementById("un").value;
+    ws.send(userValue)
 
     
-  // });
+  });
 };

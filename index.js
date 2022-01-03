@@ -6,6 +6,7 @@ const views = require("koa-views");
 const koaStatic = require("koa-static");
 const koaBody = require("koa-body");
 const router = require("./routes/router");
+const createSocket = require("./socket/socket.js");
 
 app.keys = ["Nodejs多人聊天室"];
 
@@ -43,4 +44,7 @@ app
     }
   });
 
-app.listen(4000);
+// 获取到koa返回的server对象，供socket使用
+const server = app.listen(4000);
+
+createSocket(server);
