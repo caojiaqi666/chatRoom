@@ -26,7 +26,6 @@ const login = async (ctx) => {
 
   let user = await UserModel.findOne({ username });
   if (!user) {
-    console.log("还没注册");
     // 如果用户名还没被使用
     try {
       let u = new UserModel({ username, passwd, online: true });

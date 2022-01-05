@@ -13,7 +13,6 @@ window.onload = () => {
         passwd,
       },
     });
-    console.log(res);
     if (res.data.state == 0) {
       console.log("登录成功");
       window.location.href = res.data.url;
@@ -33,19 +32,7 @@ window.onload = () => {
     if (userValue && passValue) {
       toLogin(userValue, passValue);
     } else {
-      alert("Please enter");
+      alert("Please Enter");
     }
-  });
-  let ws = new WebSocket("ws://localhost:4000")
-
-  ws.onmessage = (e) => {
-    console.log(e.data);
-  }
-
-  btn.addEventListener("click", function (e) {
-    const userValue = document.getElementById("un").value;
-    ws.send(userValue)
-
-    
   });
 };

@@ -18,9 +18,12 @@ const chat = async (ctx) => {
   let username = encodeURIComponent(ctx.cookies.get("username"))
   let passwd = encodeURIComponent(ctx.cookies.get("passwd"))
   let user = await UserModel.find({ username });
-  let onlineUser = await UserModel.find({online: true})
+  
 
   if (user.length > 0 && user[0].passwd === passwd) {
+    UserModel.updateOne({ username}, {online: true})
+    
+    let onlineUser = await UserModel.find({online: true})
     return await ctx.render("chat", {
       username: `<${username}>`,
       onlineUser

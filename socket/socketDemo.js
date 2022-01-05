@@ -11,7 +11,6 @@ wss.on("connection", (ws, req) => {
 
   // 用户发送消息触发
   ws.on("message", msg => {
-    console.log("有用户发送消息", msg.toString());
     wss.clients.forEach(client => {
       client.send(`${msg.toString()}加入了聊天室`)
     })
@@ -19,7 +18,6 @@ wss.on("connection", (ws, req) => {
 
   // 用户断开连接触发事件
   ws.on("close", msg => {
-    console.log("有用户断开连接", msg);
     wss.clients.forEach(client => {
       client.send(`${msg.toString()}退出了聊天室`)
     })
